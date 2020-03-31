@@ -9,14 +9,15 @@ from selenium.common.exceptions import NoSuchElementException
 import requests
 
 # input username, output set/list of successful submissions
+# change solved_problems from list to set for more efficiency but set will lose order
 def codeforces_profile_submissions(username):
     response = requests.get("https://codeforces.com/api/user.status", params={"handle":username})
     response_json = response.json()
     if response_json["status"] == "OK":
-        solved_problems = set()
+        solved_problems = list()
         for item in response_json['result']:
             if item['verdict'] == "OK":
-                solved_problems.add(item['problem']['name'])
+                solved_problems.append(item['problem']['name'])
         return solved_problems
     else:
         return response_json
