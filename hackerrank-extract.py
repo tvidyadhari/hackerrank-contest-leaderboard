@@ -14,12 +14,10 @@ def codeforces_profile_submissions(username):
     response_json = response.json()
     if response_json["status"] == "OK":
         solved_problems = set()
-        verdict = set()
         for item in response_json['result']:
             if item['verdict'] == "OK":
                 solved_problems.add(item['problem']['name'])
-            verdict.add(item['verdict'])
-        return "solved_problems"
+        return solved_problems
     else:
         return response_json
 
