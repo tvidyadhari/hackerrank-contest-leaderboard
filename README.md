@@ -1,2 +1,2 @@
-# hackerrank-contest-leaderboard
-Get JSON of all the participants details
+# students-submissions-extract
+Extracts data from hackerrank contest leaderboards and codeforces user successful submissions
